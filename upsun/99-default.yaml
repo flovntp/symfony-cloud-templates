@@ -1,0 +1,21 @@
+requirements:
+
+template: |
+    app:
+      name: {{.Slug}}
+
+      type: php:{{.PhpVersion}}
+
+      build:
+          flavor: none
+
+      web:
+          commands:
+              start: sleep
+          locations:
+              "/":
+                  root: "{{.PublicDirectory}}"
+                  index:
+                      - "index.html"
+                  scripts: false
+                  expires: 10m
